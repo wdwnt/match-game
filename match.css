@@ -1,3 +1,12 @@
+.panelist {
+    margin: 16px;
+	width: 512px;
+}
+
+.panelist-name {
+    width: 100px;
+}
+
 .light-box {
     width:50px;
     height:50px;
@@ -5,11 +14,7 @@
     background:#000000;
 }
 
-.panelist {
-	width: 512px;
-}
-
 .light-box, .panelist-name {
-	float: left	;
+	float: left;
 	vertical-align: bottom;
 }

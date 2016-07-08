@@ -14,20 +14,56 @@
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.js"></script>
+
     <link rel="stylesheet" type="text/css" href="./match.css">
 </head>
 <body>
 	<div class="container">
 		<div class="row">
-		  <div class="col-sm-8">.col-md-8
-			  <div class="panelist" >
-				  <div class="light-box green-light-box"></div>
-				  <div class="panelist-name"> <p align="center" contenteditable="true">NAME</p></div>
-				  <div class="light-box red-light-box"></div>
+		  <div class="col-sm-8">Panelists
+			  <div class="row">
+				  <div class="col-sm-12">
+				  	<div id="panelists"></div>
+				  </div>
 			  </div>
 		  </div>
-		  <div class="col-sm-4">.col-md-4</div>
+		  <div class="col-sm-4">Score</div>
 		</div>
 	</div>
+	<script id="panelist-template" type="text/x-handlebars-template">
+		{{#each panelists}}
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="panelist">
+					<div class="light-box green-light-box"></div>
+					<div class="panelist-name">
+						<p align="center" contenteditable="true">{{name}}</p>
+					</div>
+					<div class="light-box red-light-box"></div>
+				</div>
+			</div>
+		</div>
+		{{/each}}
+	</script>
+	<script>
+		var panelists = [
+			{
+				name: "Tom"
+			},
+			{
+				name: "Jason"
+			},
+			{
+				name: "Michael"
+			}
+		];
+
+		$(function() {
+			var template = Handlebars.compile($("#panelist-template").html());
+			var html = template({ panelists: panelists });
+        	$("#panelists").html(html);
+		});
+	</script>
 </body>
 </html>
