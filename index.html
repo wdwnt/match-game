@@ -36,11 +36,17 @@
 		<div class="row">
 			<div class="col-sm-12">
 				<div class="panelist">
-					<div class="light-box green-light-box"></div>
+					<div class="green-light-box">
+						<img src="wdwnt.png" class="triangle-light-box"/>
+						<!--<img src="green_triangle.png" class="light-box left-on-box"/>-->
+					</div>
 					<div class="panelist-name">
 						<p align="center" contenteditable="true">{{name}}</p>
 					</div>
-					<div class="light-box red-light-box"></div>
+					<div class="red-light-box">
+						<img src="wdwnt.png" class="light-box"/>
+						<img src="red_circle.png" class="light-box"/>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -64,6 +70,12 @@
 			var html = template({ panelists: panelists });
         	$("#panelists").html(html);
 		});
+		
+		$(".triangle-light-box").click(function() {
+			$(this).attr('src','green_triangle.png')
+		    // $(this).find('img').toggle();
+		});
+
 	</script>
 </body>
 </html>

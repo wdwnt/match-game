@@ -20,6 +20,21 @@
 	vertical-align: bottom;
 }
 
+.green-correct {
+	background: green;
+	background-image: url(green_triangle.png);
+	background-repeat:no-repeat;
+	background-size: contain;
+}
+
+.red-correct {
+	background: red;
+	background-image: url(green_triangle.png);
+	background-repeat:no-repeat;
+	background-size: contain;
+}
+
+
 body {
 	background-color: orange;
 }
