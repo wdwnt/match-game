@@ -29,6 +29,9 @@
 			  </div>
 		  </div>
 		  <div class="col-sm-4">Score</div>
+		  	<div id="triangle-score">0</div>
+		  	<div id="circle-score">0</div>
+
 		</div>
 	</div>
 	<script id="panelist-template" type="text/x-handlebars-template">
@@ -36,23 +39,33 @@
 		<div class="row">
 			<div class="col-sm-12">
 				<div class="panelist">
-					<div class="green-light-box">
-						<img src="wdwnt.png" class="triangle-light-box"/>
-						<!--<img src="green_triangle.png" class="light-box left-on-box"/>-->
+					<div class="green-light-box light-cell">
+						<img src="wdwnt.png" class="light-box left-off-box"/>
+						<img src="green_triangle.png" class="light-box left-on-box triangle" style="display: none"/>
 					</div>
 					<div class="panelist-name">
 						<p align="center" contenteditable="true">{{name}}</p>
 					</div>
-					<div class="red-light-box">
+					<div class="red-light-box light-cell">
 						<img src="wdwnt.png" class="light-box"/>
-						<img src="red_circle.png" class="light-box"/>
+						<img src="red_circle.png" class="light-box circle" style="display: none"/>
 					</div>
 				</div>
 			</div>
 		</div>
 		{{/each}}
+
+		<script>
+		$(".light-cell img").click(function() {
+		    $(this).parent().find('img').toggle();
+		    $('#triangle-score').text($(".triangle:visible").length);
+		    $('#circle-score').text($(".circle:visible").length);
+		});
+		</script>
+
 	</script>
 	<script>
+
 		var panelists = [
 			{ name: "TOM" },
 			{ name: "NICK"	},
@@ -70,12 +83,7 @@
 			var html = template({ panelists: panelists });
         	$("#panelists").html(html);
 		});
-		
-		$(".triangle-light-box").click(function() {
-			$(this).attr('src','green_triangle.png')
-		    // $(this).find('img').toggle();
-		});
-
+	
 	</script>
 </body>
 </html>
