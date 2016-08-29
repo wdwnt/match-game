@@ -21,23 +21,27 @@
 <body>
 	<div class="container">
 		<div class="row">
-		  <div class="col-sm-8">Panelists
+		  <div class="col-sm-6">
 			  <div class="row">
 				  <div class="col-sm-12">
 				  	<div id="panelists"></div>
 				  </div>
 			  </div>
 		  </div>
-		  <div class="col-sm-4">Score</div>
-		  	<div id="triangle-score">0</div>
-		  	<div id="circle-score">0</div>
+		  <div class="col-sm-6 col-centered">
+			  <div id="scores">
+		  	<h4 style="color:green" contenteditable="true">Player 1</h4><div id="triangle-score">0</div>
+		  	<h4 style="color:red" contenteditable="true">Player 2</h4><div id="circle-score">0</div>
+			  </div>
+		  	<img id="board" class="noselect" data-draggable="target" src="wdwnewstonight.jpg" alt="" />
+		  </div>
 
 		</div>
 	</div>
 	<script id="panelist-template" type="text/x-handlebars-template">
 		{{#each panelists}}
 		<div class="row">
-			<div class="col-sm-12">
+			<div class="col-sm-12 panelists">
 				<div class="panelist">
 					<div class="green-light-box light-cell">
 						<img src="wdwnt.png" class="light-box left-off-box"/>
